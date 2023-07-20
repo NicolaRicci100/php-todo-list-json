@@ -9,7 +9,4 @@ createApp({
       tasks: []
     }
   },
-  created(){
-    axios.get('http://localhost/php-todo-list-json/php/').then(res => { this.tasks = res.data });
-  }
 }).mount('#root');
