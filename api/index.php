@@ -1,16 +1,16 @@
 <?php
+$database_path = __DIR__ . '/../database/tasks.json';
 
-$tasks = [
-  "Black Lotus",
-  "Mox Emerald",
-  "Mox Jet",
-  "Mox Pearl",
-  "Mox Ruby",
-  "Mox Sapphire",
-  "Ancestral Recall",
-  "Timetwister",
-  "Time Walk"
-];
+$json_data = file_get_contents($database_path);
+
+$tasks = json_decode($json_data);
+
+$new_task = $_POST['task'] ?? null;
+if ($new_task) {
+  $tasks[] = $new_task;
+  $json_tasks = json_encode($tasks);
+  file_put_contents($database_path, $json_tasks);
+}
 
 header('Content-Type: application/json');
 
