@@ -1,15 +1,9 @@
 <?php
-$tasks = [
-  "Black Lotus",
-  "Mox Emerald",
-  "Mox Jet",
-  "Mox Pearl",
-  "Mox Ruby",
-  "Mox Sapphire",
-  "Ancestral Recall",
-  "Timetwister",
-  "Time Walk"
-];
+$database_path = __DIR__ . '/../database/tasks.json';
+
+$json_data = file_get_contents($database_path);
+
+$tasks = json_decode($json_data);
 
 header('Content-Type: application/json');
 
