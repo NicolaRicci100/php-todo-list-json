@@ -22,6 +22,9 @@ createApp({
         this.cards.push(res.data);
         this.newCard = '';
       })
-    }
+    },
+    // deleteCard(){
+      
+    // }
   }
 }).mount('#root');
