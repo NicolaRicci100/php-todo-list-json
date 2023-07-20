@@ -6,17 +6,12 @@ const { createApp } = Vue;
 createApp({
   data(){
     return{
-      tasks:[
-        "Black Lotus",
-        "Mox Emerald",
-        "Mox Jet",
-        "Mox Pearl",
-        "Mox Ruby",
-        "Mox Sapphire",
-        "Ancestral Recall",
-        "Timetwister",
-        "Time Walk"
-      ]
+      tasks: []
     }
+  },
+  created(){
+    axios.get('http://localhost/php-todo-list-json/php/').then(res =>{
+      this.tasks = res.data;
+    });
   }
 }).mount('#root');
