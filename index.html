@@ -20,7 +20,10 @@
 
 <body>
   <div id="root">
-    <h1 class="text-danger">Prova</h1>
+    <h1 class="text-danger">Todo List</h1>
+    <ul> 
+      <li v-for="(task,i) in tasks" :key="i">{{ task }}</li>
+    </ul>
   </div>
 </body>
 
